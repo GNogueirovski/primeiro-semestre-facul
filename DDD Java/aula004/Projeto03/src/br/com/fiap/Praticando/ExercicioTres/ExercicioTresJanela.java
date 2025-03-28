@@ -16,6 +16,7 @@ public class ExercicioTresJanela {
             raio = Double.parseDouble(auxiliar);
 
             area = PI * (raio * raio);
+            //area = Math.PI * Math.pow(raio,2);
 
             JOptionPane.showMessageDialog(null,"A área desse círculo é: " + area);
 

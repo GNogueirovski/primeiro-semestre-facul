@@ -6,15 +6,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        double valorPlanoDeSaude;
-        double descontoINSS;
-        double salarioBruto;
+        // instancia do objeto
+        FolhaDePagamento folhaDePagamento = new FolhaDePagamento();
+        // declaracao
+        double salarioBruto, descontoINSS, valorPlanoDeSaude;
         int numeroDeDependentes;
         Scanner scan;
-        FolhaDePagamento folhaDePagamento = new FolhaDePagamento();
 
-        try{
+        try {
+            // instancia scanner
             scan = new Scanner(System.in);
+            // inputs
             System.out.println("Digite o seu salário bruto: ");
             salarioBruto = scan.nextDouble();
 
@@ -27,11 +29,13 @@ public class Main {
             System.out.println("Digite o valor do plano de saude(individual): ");
             valorPlanoDeSaude = scan.nextDouble();
 
+            // Atribui o valor das variaveis ao objeto.
             folhaDePagamento.valorPlanoDeSaude = valorPlanoDeSaude;
             folhaDePagamento.descontoINSS = descontoINSS;
             folhaDePagamento.salarioBruto = salarioBruto;
             folhaDePagamento.numeroDeDependentes = numeroDeDependentes;
 
+            // Metodo com retorno de salário liquido já calculado
             System.out.printf("O seu salário liquido com os descontos fica %.3f", folhaDePagamento.calcularSalarioLiquido());
 
         } catch (Exception e) {

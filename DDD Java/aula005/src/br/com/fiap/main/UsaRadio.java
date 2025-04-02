@@ -1,4 +1,6 @@
-package br.com.fiap;
+package br.com.fiap.main;
+
+import br.com.fiap.bean.Radio;
 
 public class UsaRadio {
     public static void main(String[] args) {

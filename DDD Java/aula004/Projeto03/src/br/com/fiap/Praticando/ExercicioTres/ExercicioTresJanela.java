@@ -18,7 +18,9 @@ public class ExercicioTresJanela {
             area = PI * (raio * raio);
             //area = Math.PI * Math.pow(raio,2);
 
-            JOptionPane.showMessageDialog(null,"A área desse círculo é: " + area);
+            String mensagem = String.format("A área desse círculo é: %.2f", area);
+
+            JOptionPane.showMessageDialog(null, mensagem);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Formato errado de número");

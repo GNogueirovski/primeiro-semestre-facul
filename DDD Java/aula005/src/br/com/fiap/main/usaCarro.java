@@ -1,4 +1,6 @@
-package br.com.fiap;
+package br.com.fiap.main;
+
+import br.com.fiap.bean.Carro;
 
 public class usaCarro {
     public static void main(String[] args) {

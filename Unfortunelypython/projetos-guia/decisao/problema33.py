@@ -19,5 +19,5 @@ elif op == "*":
 else:
     print("Operador inválido")
     resultado = None
-
-print(f"O resultado da operação escolhida entre o {num1} e {num2} é {resultado}")
+if resultado != None:
+    print(f"O resultado da operação  {num1} {op} {num2} = {resultado}")

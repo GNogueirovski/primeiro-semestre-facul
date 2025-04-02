@@ -19,7 +19,9 @@ public class ExercicioDoisJanela {
 
             idade = anoAtual - anoNascimento;
 
-            JOptionPane.showMessageDialog(null,"A sua idade é ou será : " + idade + " anos");
+            String mensagem = String.format("A sua idade é ou será : " + idade + " anos");
+
+            JOptionPane.showMessageDialog(null, mensagem);
 
 
         } catch (RuntimeException e) {

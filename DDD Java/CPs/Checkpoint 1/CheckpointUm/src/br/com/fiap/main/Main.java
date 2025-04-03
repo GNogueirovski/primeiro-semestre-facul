@@ -1,4 +1,4 @@
-// RM: 563925 - Gabriel Nogueira Peixoto ; RM:xxxxxx - Mariana Inoue ; RM: xxxxxx - Giovanna Neri dos Santos
+// RM: 563925 - Gabriel Nogueira Peixoto ; RM:565834 - Mariana Inoue ; RM: 566154 - Giovanna Neri dos Santos
 package br.com.fiap.main;
 
 import br.com.fiap.bean.DespesaFamiliar;
@@ -7,14 +7,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // instancia do objeto
         DespesaFamiliar despesa = new DespesaFamiliar();
-        double gastoComLuz, gastoComAgua, gastoComInternet,valorMensalidadeDaAcademia, rendaFamiliar;
+        // declaração de variaveis
+        double rendaFamiliar;
         int numeroDeMoradores;
+        double gastoComLuz;
+        double gastoComAgua;
+        double gastoComInternet;
+        double valorMensalidadeDaAcademia;
         Scanner scan;
 
+        // bloco de código
         try {
+            // instancia do scanner
             scan = new Scanner(System.in);
-
+            // Entrada de dados do usuário
             System.out.println("Insira sua renda familiar (em reais): ");
             rendaFamiliar = scan.nextDouble();
 
@@ -33,6 +41,7 @@ public class Main {
             System.out.println("Insira o valor da mensalidade da academia: ");
             valorMensalidadeDaAcademia = scan.nextDouble();
 
+            // atribuição do valor da variavel ao atributo do objeto
             despesa.rendaFamiliar = rendaFamiliar;
             despesa.numeroDeMoradores = numeroDeMoradores;
             despesa.gastoComLuz = gastoComLuz;
@@ -40,13 +49,12 @@ public class Main {
             despesa.gastoComInternet = gastoComInternet;
             despesa.valorMensalidadeDaAcademia = valorMensalidadeDaAcademia;
 
-            despesa.calcularTotalDeDespesas();
-            despesa.calcularRendaFamiliarLiquida();
-
+            // saída de dados com formatação
             System.out.printf("A renda bruta da sua família é: %.3f\n", despesa.rendaFamiliar);
             System.out.printf("O total das suas despesas é: R$ %.3f\nA sua renda familiar liquida é: R$ %.3f\n", despesa.calcularTotalDeDespesas(), despesa.calcularRendaFamiliarLiquida());
 
         }
+        // tratamento de exceção
         catch (Exception e) {
             System.out.println("Números preenchidos de maneira incorreta!");
         }

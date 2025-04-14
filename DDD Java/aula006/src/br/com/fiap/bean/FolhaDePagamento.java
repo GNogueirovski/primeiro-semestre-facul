@@ -8,11 +8,11 @@ public class FolhaDePagamento {
 
 
     public double calcularSalarioLiquido() {
-        double salarioLiquido;
+        double salarioLiquido, desconto1, desconto2;
 
-        valorPlanoDeSaude = valorPlanoDeSaude * (numeroDeDependentes + 1);
-        salarioLiquido = salarioBruto - (salarioBruto * descontoINSS/100);
-        salarioLiquido = salarioLiquido - valorPlanoDeSaude;
+        desconto1 = salarioBruto * (descontoINSS/100);
+        desconto2 = valorPlanoDeSaude * (numeroDeDependentes + 1);
+        salarioLiquido = salarioBruto - (desconto1+desconto2);
 
         return salarioLiquido;
     }

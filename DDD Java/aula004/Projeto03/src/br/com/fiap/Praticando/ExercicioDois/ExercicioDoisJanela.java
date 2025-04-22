@@ -10,7 +10,6 @@ public class ExercicioDoisJanela {
         Scanner scan;
 
         try{
-            scan = new Scanner(System.in);
             auxiliar = JOptionPane.showInputDialog("Digite o ano atual: ");
             anoAtual = Integer.parseInt(auxiliar);
 

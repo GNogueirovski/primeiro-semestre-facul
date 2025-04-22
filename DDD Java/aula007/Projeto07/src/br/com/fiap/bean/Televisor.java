@@ -9,7 +9,15 @@ public class Televisor {
     }
 
     public void setVolume(int volume) {
-        this.volume = volume;
+        try {
+            if(volume >= 0 && volume <= 20){
+                this.volume = volume;
+            }else{
+                throw new Exception("Volume fora da faixa permitida (min=0, max=20)");
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public int getCanal() {

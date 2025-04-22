@@ -3,29 +3,45 @@ package br.com.fiap.main;
 import br.com.fiap.bean.Radio;
 import br.com.fiap.bean.Televisor;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class MainTelevisor {
     public static void main(String[] args) {
         Televisor televisor = new Televisor();
         Scanner scan;
-        int canal, volume;
+        int escolha;
 
         try {
            scan = new Scanner(System.in);
-            System.out.println("Canais disponíveis: 2, 4, 5, 7, 13? ");
-            canal = scan.nextInt();
-            televisor.setCanal(canal);
+            System.out.println("Escolha um canal e defina o volume: ");
+            televisor.setCanal(scan.nextInt());
+            televisor.setVolume(scan.nextInt());
 
-            System.out.println("Volume ");
-            volume = scan.nextInt();
-            televisor.setVolume(volume);
+            System.out.println("Escolha :\n(1)Definir Canal\n(2)Definir volume\n(3)Aumentar volume\n(4)Diminuir volume");
+            escolha = scan.nextInt();
 
-            System.out.println("Opção aumentar volume");
+            if (escolha == 1) {
+                System.out.println("Escolha um novo canal: ");
+                televisor.setCanal(scan.nextInt());
+            }
+            else if (escolha == 2) {
+                System.out.println("Escolha um novo volume: ");
+                televisor.setVolume(scan.nextInt());
+            }
+            else if (escolha == 3) {
+                System.out.println("Aumentando volume...");
+                televisor.aumentarVolume();
+            }
+            else{
+                System.out.println("Diminuindo volume...");
+                televisor.diminuirVolume();
+            }
 
-            televisor.aumentarVolume();
+                System.out.printf("Canal atual: %s\nVolume atual: %d ", televisor.getCanal(), televisor.getVolume());
 
-            televisor.diminuirVolume();
+
+
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

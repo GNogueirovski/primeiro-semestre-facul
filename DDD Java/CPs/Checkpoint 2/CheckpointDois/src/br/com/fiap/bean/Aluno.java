@@ -5,21 +5,24 @@ import javax.swing.*;
 import java.time.LocalDate;
 
 public class Aluno {
+    // atributos
     private int registroMatricula;
     private String nomeCompleto;
     private int anoDeNascimento;
 
+    // construtor vazio
     public Aluno() {}
+
+    // construtor com parametros
     public Aluno(int registroMatricula, int anoDeNascimento, String nomeCompleto) {
         setRegistroMatricula(registroMatricula);
         setAnoDeNascimento(anoDeNascimento);
         this.nomeCompleto = nomeCompleto;
     }
-
+    // getters e os setters com regras de negócio (exceto setNomeCompleto)
     public int getRegistroMatricula() {
         return registroMatricula;
     }
-
     public void setRegistroMatricula(int registroMatricula) {
         try{
             if(registroMatricula >= 80000 && registroMatricula <= 599999) {
@@ -57,7 +60,7 @@ public class Aluno {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
-
+    // metodo para calcular a idade
     public int calcularIdade(LocalDate dataAtual) {
        dataAtual = LocalDate.now();
        return dataAtual.getYear() - getAnoDeNascimento();

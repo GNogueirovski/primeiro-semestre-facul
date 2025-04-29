@@ -11,19 +11,19 @@ public class MainAluno {
         LocalDate dataAtual = LocalDate.now();
 
         try{
-            // Instanciando construtor vazio e preenchendo o aluno1(objeto) através do setter
+            // Instanciando construtor vazio e passando valores para o aluno1(objeto) através do setter
             aluno1 = new Aluno();
             aluno1.setRegistroMatricula(Integer.parseInt(JOptionPane.showInputDialog("Digite o RM do Aluno 1: ")));
             aluno1.setAnoDeNascimento(Integer.parseInt(JOptionPane.showInputDialog("Digite o ano de nascimento do Aluno 1: ")));
             aluno1.setNomeCompleto(JOptionPane.showInputDialog("Digite o nome completo do Aluno 1: "));
 
-            // Instanciando construtor vazio e preenchendo o aluno2(objeto) através do setter
+            // Instanciando construtor vazio e passando valores para o aluno2(objeto) através do setter
             aluno2 = new Aluno();
             aluno2.setRegistroMatricula(Integer.parseInt(JOptionPane.showInputDialog("Digite o RM do Aluno 2: ")));
             aluno2.setAnoDeNascimento(Integer.parseInt(JOptionPane.showInputDialog("Digite o ano de nascimento do Aluno 2: ")));
             aluno2.setNomeCompleto(JOptionPane.showInputDialog("Digite o nome completo do Aluno 2: "));
 
-            // Utilizando construtor com parâmetros para criação dos dois últimos alunos
+            // Utilizando construtor com parâmetros para criação dos dois últimos alunos com seus devidos valores
             aluno3 = new Aluno(566154, 2006,"Giovanna Neri dos Santos");
             aluno4 = new Aluno(563925, 2002,"Gabriel Nogueira Peixoto");
 

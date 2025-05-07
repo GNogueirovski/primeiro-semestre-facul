@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sala de Espera Virtual</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #4caf50;
+      text-align: center;
+    }
+    .camera-preview {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .instructions {
+      margin-top: 20px;
+    }
+    .instruction {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #e8f5e9;
+      border-left: 5px solid #4caf50;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #388e3c;
+    }
+    .enter-button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 24px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .enter-button:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sala de Espera Virtual</h1>
+
+    <div class="camera-preview">
+      <video id="camera" width="100%" autoplay muted></video>
+    </div>
+
+    <div class="controls">
+      <button class="button" id="toggleCamera" onclick="toggleCamera()">Ligar Câmera</button>
+      <button class="button" id="toggleMic" onclick="toggleMic()">Ligar Microfone</button>
+    </div>
+
+    <div class="instructions">
+      <div class="instruction">Certifique-se de estar em um ambiente bem iluminado.</div>
+      <div class="instruction">Centralize o rosto na câmera, com ombros visíveis.</div>
+      <div class="instruction">Utilize fones de ouvido para melhor qualidade de som.</div>
+      <div class="instruction">Verifique sua conexão com a internet antes da consulta.</div>
+    </div>
+
+    <button class="enter-button" onclick="entrarConsulta()">Entrar na Consulta</button>
+  </div>
+
+  <script>
+    let cameraOn = true;
+    let micOn = true;
+    let cameraStream = null;
+    let audioStream = null;
+
+    // Acesso à câmera e microfone
+    const videoElement = document.getElementById('camera');
+
+    function toggleCamera() {
+      if (cameraOn) {
+        if (cameraStream) {
+          cameraStream.getTracks().forEach(track => track.stop());
+        }
+        videoElement.style.display = 'none';
+        document.getElementById('toggleCamera').textContent = 'Ligar Câmera';
+      } else {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(stream => {
+            cameraStream = stream;
+            videoElement.srcObject = stream;
+            videoElement.style.display = 'block';
+          })
+          .catch(error => {
+            console.error("Erro ao acessar a câmera: ", error);
+          });
+        document.getElementById('toggleCamera').textContent = 'Desligar Câmera';
+      }
+      cameraOn = !cameraOn;
+    }
+
+    function toggleMic() {
+      if (micOn) {
+        if (audioStream) {
+          audioStream.getTracks().forEach(track => track.stop());
+        }
+        document.getElementById('toggleMic').textContent = 'Ligar Microfone';
+      } else {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+          .then(stream => {
+            audioStream = stream;
+          })
+          .catch(error => {
+            console.error("Erro ao acessar o microfone: ", error);
+          });
+        document.getElementById('toggleMic').textContent = 'Desligar Microfone';
+      }
+      micOn = !micOn;
+    }
+
+    function entrarConsulta() {
+      alert("Você está prestes a entrar na consulta online.");
+      window.location.href = "https://example.com/link-da-consulta";
+    }
+  </script>
+</body>
+</html>

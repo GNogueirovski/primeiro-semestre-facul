@@ -40,7 +40,6 @@ public class Main {
                 escolha = JOptionPane.showInputDialog("Deseja continuar o programa?");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());   }
-
         }
         JOptionPane.showMessageDialog(null, "Programa finalizado com sucesso!");
     }
